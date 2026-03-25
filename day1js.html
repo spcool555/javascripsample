@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>day 6 js</h1>
+
+<button    onclick="fan()"    >fan on</button>
+<button    onclick="light()"    >light on</button>
+<button    onclick="ac()"    >ac on</button>
+
+<input type="text"     onchange="ac()" >
+<input type="text"     oninput="tv()" >
+
+
+    <script>
+
+      
+
+        function fan(){
+            alert("hello world")
+            light()
+            ac()
+        }
+
+        function light(){
+            alert("hello xyz")
+        }
+
+        function ac(){
+            alert("hello ac")
+        }
+        function tv(){
+            console.log("sab tv")
+        }
+
+    </script>
+</body>
+</html>

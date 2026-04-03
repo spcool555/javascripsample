@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>array,object,iteration,</h1> ]
+   <label id="abc"></label>
+   
+<script>
+
+var a
+// Iterate over the elements
+let text = ""
+for (const x of myIterator) {
+  text += x + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text; // to print the value in html page
+
+var arr =  [
+    "pinapple",
+    "banana",
+     "orange" ,
+     "apple",
+      "kiwi"
+] // array example
+
+var obj = {
+    name : "john",
+    age : 30,
+    city : "new york"
+} // object example
+
+
+console.log(obj) //  full object print
+console.log(obj.name) // to access the value of object based on key
+
+
+// for(var i = 0; i < arr.length; i++){
+//     console.log(arr[i])
+// }
+
+
+arr.forEach(items => {console.log(items)});
+
+
+
+
+
+try {
+  let a = 10;
+  let b = 0;
+
+  if (b === 0) {
+   console.log("Cannot divide by zero");
+  }
+
+  let result = a / b;
+  console.log("Result:", result);
+
+} catch (error) {
+  console.log("Error:", error.message);
+}
+</script>
+
+</body>
+</html>

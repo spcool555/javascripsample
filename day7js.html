@@ -1,50 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>day8 </h1>
+<form  action="https://api.web3forms.com/submit" method="POST">
+          <div class="row gy-4">
+  <input type="hidden" name="access_key" value="da0ea9ca-41ff-4ffe-8858-768ebebb930e">
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            </div>
 
+            <div class="col-md-6 ">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+            </div>
 
-<input type="number" id="fno" >
-<input type="number" id="sno" >
-<!-- <input type="number" id="res" readonly> -->
+            <!-- <div class="col-md-12">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+            </div> -->
 
-<label id="res">0</label>
+            <div class="col-md-12">
+              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+            </div>
 
+            <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
 
+              <button type="submit" style="background-color: #FFCC01; color: black;">Send Message</button>
+            </div>
 
-
-<button onclick="add()">+</button>
-<button onclick="sub()">-</button>
-    
-
-
-    <script>
-
-
-
-
-
-        function add(){
-
-            let a = document.getElementById("fno").value;
-            let b = document.getElementById("sno").value;
-            let c = parseInt(a) + parseInt(b);
-            // document.getElementById("res").value = c;  // use for result in  input field
-            document.getElementById("res").innerHTML = c; // use for result in  lable
-        }
-
-        
-        function sub(){
-             let a = document.getElementById("fno").value;
-            let b = document.getElementById("sno").value;
-            let c = a-b
-            alert("subtraction: " + c);
-        }
-    </script>
-</body>
-</html>
+          </div>
+        </form>

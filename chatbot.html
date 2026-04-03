@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healthcare Chatbot</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+            margin: 0;
+        }
+
+        .chat-container {
+            width: 400px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+        }
+
+        .header {
+            background: #2b7a78;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 10px 10px 0 0;
+        }
+
+     .chat-box {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+
+    display: flex;              /* ✅ ADD THIS */
+    flex-direction: column;     /* ✅ ADD THIS */
+}
+
+      .message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/* ✅ User → RIGHT */
+.user {
+    background: #def2f1;
+    align-self: flex-end;
+}
+
+/* ✅ Bot → LEFT */
+.bot {
+    background: #e4e4e4;
+    align-self: flex-start;
+}
+
+        .input-area {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            padding: 10px;
+            background: #3aafa9;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2b7a78;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="header">Healthcare Chatbot</div>
+
+    <div class="chat-box" id="chatBox"></div>
+
+    <div class="input-area">
+        <input type="text" id="messageInput" placeholder="Ask your health question..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    const chatBox = document.getElementById("chatBox");
+
+    function addMessage(text, type) {
+        const msg = document.createElement("div");
+        msg.classList.add("message", type);
+        msg.innerText = text;
+        chatBox.appendChild(msg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+  async function sendMessage() {
+    const input = document.getElementById("messageInput");
+    const message = input.value;
+
+    if (!message) return;
+
+    addMessage(message, "user");
+    input.value = "";
+
+    const botMsg = document.createElement("div");
+    botMsg.classList.add("message", "bot");
+    chatBox.appendChild(botMsg);
+
+    const response = await fetch(
+        "http://localhost:8080/api/chat?userId=user123&message=" + encodeURIComponent(message),
+        { method: "POST" }
+    );
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder("utf-8");
+
+    let fullText = "";
+
+    while (true) {
+        const { done, value } = await reader.read();
+
+        if (done) break;
+
+        const chunk = decoder.decode(value, { stream: true });
+        fullText += chunk;
+
+        // ✨ LIVE update
+        botMsg.innerText = fullText;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+}
+</script>
+
+</body>
+</html>

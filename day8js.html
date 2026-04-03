@@ -9,27 +9,45 @@
     
 
 
+    <div id="mydiv">
+        <h1>Registration</h1>
+<label>Name:</label> 
+<input type="text" id="name">
+<br>
+<label for="">Gender</label>
+<input type="radio" name="gender" value="male">Male
+<input type="radio" name="gender" value="female">Female
+<input type="radio" name="gender" value="other">Other
+<br>
+<label for="">Email</label>
+<input type="email">
+<br>
+<label for="">Password</label>
+<input type="password">
+
+<br><br>
+<button type="submit" onclick="sendEmail()">Submit</button>
+        <br>
+        <a href="./day7js.html">login</a>
+    </div>
+
 
     <script>
 
-      let date  =  new Date();
-      console.log(date.getDate() , date.getMonth() , date.getFullYear() );
-    
-    
-    // let a =   Math.PI
-    // let a =   Math.PI.toFixed(2);
-    // let a =   Math.round(3.1);
-    // let a =   Math.floor(3.14159);
-    // let a =   Math.max(7,8);
-    // let a =   Math.min(1,2);
-    // let a =   Math.pow(2,2);
-    // let a =   Math.random();
-//  helloooooo
+function sendEmail() {
 
-    // for otp generation
-    let a =   Math.floor(Math.random()*1000000);
 
-    console.log("Your Otp is : "+a);
+
+
+var a = document.getElementById('name').value;
+
+
+
+
+}
+
+
+
     </script>
 </body>
 </html>

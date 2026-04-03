@@ -4,38 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <h1>day 6 js</h1>
+    <h1>local storage</h1>
 
-<button    onclick="fan()"    >fan on</button>
-<button    onclick="light()"    >light on</button>
-<button    onclick="ac()"    >ac on</button>
+    <form action="https://api.web3forms.com/submit" method="POST" onsubmit="generateOTP()">
+  <input type="hidden" name="access_key" value="da0ea9ca-41ff-4ffe-8858-768ebebb930e">
+  <input type="text" name="name" required class="form-control">
+  <input type="email" name="email" required class="form-control">
 
-<input type="text"     onchange="ac()" >
-<input type="text"     oninput="tv()" >
-
-
+  <textarea name="message"  id="otp" class="form-control"></textarea>
+  <button type="submit" >Submit Form</button>
+</form>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script>
 
+        function generateOTP() {
+           
+
+
+        var  otp = Math.floor(Math.random()*1000000)
+        
+        document.getElementById("otp").value ="YOUR OTP IS: "+ otp;
+
+
       
-
-        function fan(){
-            alert("hello world")
-            light()
-            ac()
         }
 
-        function light(){
-            alert("hello xyz")
-        }
-
-        function ac(){
-            alert("hello ac")
-        }
-        function tv(){
-            console.log("sab tv")
-        }
 
     </script>
 </body>
